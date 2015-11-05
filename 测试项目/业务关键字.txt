@@ -1,0 +1,12 @@
+*** Keywords ***
+百度搜索
+    [Arguments]    ${search}    ${result}
+    Open Browser    http://www.baidu.com    chrome
+    ${title}    Get Title
+    should contain    ${title}    百度一下，你就知道
+    Input Text    id=kw    ${search}
+    Click Button    id=su
+    sleep    2
+    ${title}    get title
+    should contain    ${title}    ${result}
+    close Browser

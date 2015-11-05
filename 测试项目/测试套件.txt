@@ -1,0 +1,71 @@
+*** Settings ***
+Library           Selenium2Library
+Library           Screenshot
+Resource          业务关键字.txt
+
+*** Variables ***
+${mao}            毛永凡来了
+@{mao2}           嘿嘿    哈哈    吼吼    呵呵
+
+*** Test Cases ***
+baidu_search
+    [Tags]    重要
+    Open Browser    http://www.baidu.com    chrome
+    ${title}    Get Title
+    should contain    ${title}    百度一下，你就知道
+    Input Text    id=kw    ${search}
+    Click Button    id=su
+    sleep    2
+    ${title}    get title
+    should contain    ${title}    ${result}
+    close Browser
+
+test_case
+    log    hello world
+    ${a}    Set variable    hello
+    log    ${a}
+    ${b}    Catenate    mao    yong    fan
+    log    ${b}
+    ${c}    Catenate    SEPARATOR=--    <!    >
+    log    ${c}
+    ${abc}    Create List    a    b    c
+    log    ${abc}
+    @{d}    Create List    a    b    c
+    log many    @{d}
+    ${t}    get time    hello world
+    log    ${t}
+    ${result}    Set Variable    59
+    run keyword if    ${result}>=90    log    优秀
+    ...    ELSE IF    ${result}>=70    log    良好
+    ...    ELSE IF    ${result}>=60    log    及格
+    ...    ELSE    log    不及格
+    :FOR    ${I}    in range    10
+    \    log    ${i}
+    @{o}    Create List    a    b    c
+    :FOR    ${i}    in    @{o}
+    \    log    ${i}
+    :FOR    ${I}    in    @{o}
+    \    Exit For Loop If    '${I}'=='b'
+    log    ${i}
+    ${d}    Evaluate    random.randint(1000,9999)    random
+    log    ${d}
+    ${e}    Evaluate    range(100)
+    log    ${e}
+    Import Library    os
+    Take Screenshot
+    ${dict}    Create Dictionary    a    1    b    2    v
+    ...    3
+
+test_case2
+    log    欢迎${mao}
+    :FOR    ${n}    in    @{mao2}
+    \    log    ${n}
+    循环    5
+    百度搜索    毛永凡    毛永凡_百度搜索
+    百度搜索    小毛    小毛_百度搜索
+
+*** Keywords ***
+循环
+    [Arguments]    ${number}
+    :FOR    ${i}    IN RANGE    ${number}
+    \    log    ${i}
