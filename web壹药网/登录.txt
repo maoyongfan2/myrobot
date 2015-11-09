@@ -1,0 +1,96 @@
+*** Settings ***
+Suite Setup
+Suite Teardown
+Test Setup
+Test Teardown     Close Browser
+Library           Selenium2Library
+Resource          resource.txt
+
+*** Test Cases ***
+邮箱登录
+    [Setup]    打开浏览器到登录界面
+    Input text    id=userName    ${邮箱账号}
+    input text    id=userPass    ${密码}
+    click element    id=btnSubmit
+    ${logininfo}    get text    id=logininfo
+    log    ${logininfo}
+    should contain    ${logininfo}    欢迎您
+    退出账号
+    Delete All Cookies
+    [Teardown]    Close Browser
+
+手机号登录
+    [Setup]    打开浏览器到登录界面
+    Input text    id=userName    ${手机账号}
+    input text    id=userPass    ${密码}
+    click element    id=btnSubmit
+    ${logininfo}    get text    id=logininfo
+    log    ${logininfo}
+    should contain    ${logininfo}    欢迎您
+    退出账号
+    Delete All Cookies
+    [Teardown]    Close Browser
+
+一号店登录
+    [Documentation]    skip
+    ...    有验证码
+    [Tags]    skip
+    click element    css=a[id="switcher_plogin"]
+    Title Should Be    一号店登录
+    [Teardown]    Close Browser
+
+支付宝登录
+    [Documentation]    skip
+    ...    无账号
+    [Tags]    skip
+
+QQ登录
+    [Setup]    打开浏览器到登录界面
+    Click Element    css=a[onclick="jointLogin('QQ')"]
+    Title Should Be    QQ帐号安全登录
+    Select Frame    ptlogin_iframe
+    Click Element    css=a[tabindex="8"]
+    Input text    id=u    ${QQ账号}
+    Input text    id=p    ${密码}
+    click element    id=login_button
+    sleep    2
+    Title Should Be    注册壹药网
+    click element    id=gotoShopping
+    ${logininfo}    get text    id=logininfo
+    log    ${logininfo}
+    should contain    ${logininfo}    欢迎您
+    退出账号
+    Delete All Cookies
+    [Teardown]    Close Browser
+
+新浪微博登录
+    [Documentation]    skip
+    ...    有验证码
+    [Tags]    skip
+    Click Eleme    css=a[onclick="jointLogin('SINA')"]
+    Title Should Be    网站连接 - 壹药网
+    Input text    id=userId    ${新浪微博账号}
+    Input text    id=passwd    ${密码}
+
+万里通登录
+    [Documentation]    skip
+    ...    有验证码
+    [Tags]    skip
+
+网易用户登录
+    [Documentation]    skip
+    [Setup]    打开浏览器到登录界面
+    Click Element    css=a[onclick="jointLogin('163')"]
+    Title Should Be    网易用户中心
+    Input text    id=username    ${网易账号}
+    Input text    id=password    ${密码}
+    Click Element    css=input.blue_btn
+    sleep    3
+    Title Should Be    注册壹药网
+    click element    id=gotoShopping
+    ${logininfo}    get text    id=logininfo
+    log    ${logininfo}
+    should contain    ${logininfo}    欢迎您
+    退出账号
+    Delete All Cookies
+    [Teardown]    Close Browser

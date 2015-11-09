@@ -1,0 +1,21 @@
+*** Variables ***
+${url}            http://www.111.com.cn
+${browser}        firefox
+${DELAY}          0.5
+${邮箱账号}           850447881@qq.com
+${密码}             XXXXXXXXXX
+${手机账号}           17092565770
+${QQ账号}           307652153
+${网易账号}           maoyongfan@163.com
+
+*** Keywords ***
+打开浏览器到登录界面
+    open browser    ${url}    ${browser}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Title Should Be    壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网
+    Click Element    id=logininfo
+    Title Should Be    登录
+
+退出账号
+    click element    xpath=//a[@class="blue" and @target="_self"]

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20151109 14:12:21.557" generator="Robot 2.9.2 (Python 2.7.10 on darwin)">
+<suite source="/Users/maoyongfan/Documents/myrobot/web壹药网/登录.txt" id="s1" name="登录">
+<test id="s1-t1" name="邮箱登录">
+<kw type="setup" name="打开浏览器到登录界面" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151109 14:12:21.713" level="INFO">Opening browser 'firefox' to base url 'http://www.111.com.cn'</msg>
+<status status="PASS" endtime="20151109 14:12:25.948" starttime="20151109 14:12:21.712"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151109 14:12:35.940" starttime="20151109 14:12:25.949"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151109 14:12:35.941" starttime="20151109 14:12:35.940"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网</arg>
+</arguments>
+<msg timestamp="20151109 14:12:36.785" level="INFO">Page title is '壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网'.</msg>
+<status status="PASS" endtime="20151109 14:12:36.786" starttime="20151109 14:12:35.942"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=logininfo</arg>
+</arguments>
+<msg timestamp="20151109 14:12:36.787" level="INFO">Clicking element 'id=logininfo'.</msg>
+<status status="PASS" endtime="20151109 14:12:39.666" starttime="20151109 14:12:36.787"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151109 14:12:43.697" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151109 14:12:43.697" starttime="20151109 14:12:39.669"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:12:43.698" starttime="20151109 14:12:21.712"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=userName</arg>
+<arg>${邮箱账号}</arg>
+</arguments>
+<msg timestamp="20151109 14:12:43.699" level="INFO">Typing text '850447881@qq.com' into text field 'id=userName'</msg>
+<status status="PASS" endtime="20151109 14:12:45.485" starttime="20151109 14:12:43.698"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=userPass</arg>
+<arg>${密码}</arg>
+</arguments>
+<msg timestamp="20151109 14:12:45.487" level="INFO">Typing text 'Myf68827106' into text field 'id=userPass'</msg>
+<status status="PASS" endtime="20151109 14:12:47.069" starttime="20151109 14:12:45.486"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btnSubmit</arg>
+</arguments>
+<msg timestamp="20151109 14:12:47.072" level="INFO">Clicking element 'id=btnSubmit'.</msg>
+<status status="PASS" endtime="20151109 14:12:49.369" starttime="20151109 14:12:47.070"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>id=logininfo</arg>
+</arguments>
+<assign>
+<var>${logininfo}</var>
+</assign>
+<msg timestamp="20151109 14:12:50.608" level="INFO">${logininfo} = ﹏ 欢迎您！
+退出</msg>
+<status status="PASS" endtime="20151109 14:12:50.609" starttime="20151109 14:12:49.370"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${logininfo}</arg>
+</arguments>
+<msg timestamp="20151109 14:12:50.611" level="INFO">﹏ 欢迎您！
+退出</msg>
+<status status="PASS" endtime="20151109 14:12:50.612" starttime="20151109 14:12:50.610"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``item1`` does not contain ``item2`` one or more times.</doc>
+<arguments>
+<arg>${logininfo}</arg>
+<arg>欢迎您</arg>
+</arguments>
+<status status="PASS" endtime="20151109 14:12:50.613" starttime="20151109 14:12:50.612"></status>
+</kw>
+<kw name="退出账号" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[@class="blue" and @target="_self"]</arg>
+</arguments>
+<msg timestamp="20151109 14:12:50.615" level="INFO">Clicking element 'xpath=//a[@class="blue" and @target="_self"]'.</msg>
+<status status="PASS" endtime="20151109 14:12:52.805" starttime="20151109 14:12:50.614"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:12:52.806" starttime="20151109 14:12:50.614"></status>
+</kw>
+<kw name="Delete All Cookies" library="Selenium2Library">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20151109 14:12:53.438" starttime="20151109 14:12:52.807"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151109 14:12:54.149" starttime="20151109 14:12:53.439"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:12:54.150" critical="yes" starttime="20151109 14:12:21.711"></status>
+</test>
+<test id="s1-t2" name="手机号登录">
+<kw type="setup" name="打开浏览器到登录界面" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151109 14:12:54.154" level="INFO">Opening browser 'firefox' to base url 'http://www.111.com.cn'</msg>
+<status status="PASS" endtime="20151109 14:12:59.491" starttime="20151109 14:12:54.153"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151109 14:13:03.449" starttime="20151109 14:12:59.492"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151109 14:13:03.450" starttime="20151109 14:13:03.449"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网</arg>
+</arguments>
+<msg timestamp="20151109 14:13:05.394" level="INFO">Page title is '壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网'.</msg>
+<status status="PASS" endtime="20151109 14:13:05.395" starttime="20151109 14:13:03.450"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=logininfo</arg>
+</arguments>
+<msg timestamp="20151109 14:13:05.397" level="INFO">Clicking element 'id=logininfo'.</msg>
+<status status="PASS" endtime="20151109 14:13:06.823" starttime="20151109 14:13:05.396"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151109 14:13:08.074" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151109 14:13:08.075" starttime="20151109 14:13:06.826"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:13:08.077" starttime="20151109 14:12:54.153"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=userName</arg>
+<arg>${手机账号}</arg>
+</arguments>
+<msg timestamp="20151109 14:13:08.079" level="INFO">Typing text '17092565770' into text field 'id=userName'</msg>
+<status status="PASS" endtime="20151109 14:13:09.654" starttime="20151109 14:13:08.078"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=userPass</arg>
+<arg>${密码}</arg>
+</arguments>
+<msg timestamp="20151109 14:13:09.657" level="INFO">Typing text 'Myf68827106' into text field 'id=userPass'</msg>
+<status status="PASS" endtime="20151109 14:13:11.242" starttime="20151109 14:13:09.656"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=btnSubmit</arg>
+</arguments>
+<msg timestamp="20151109 14:13:11.244" level="INFO">Clicking element 'id=btnSubmit'.</msg>
+<status status="PASS" endtime="20151109 14:13:16.419" starttime="20151109 14:13:11.243"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>id=logininfo</arg>
+</arguments>
+<assign>
+<var>${logininfo}</var>
+</assign>
+<msg timestamp="20151109 14:13:17.678" level="INFO">${logininfo} = 17092565770 欢迎您！
+退出</msg>
+<status status="PASS" endtime="20151109 14:13:17.679" starttime="20151109 14:13:16.420"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${logininfo}</arg>
+</arguments>
+<msg timestamp="20151109 14:13:17.682" level="INFO">17092565770 欢迎您！
+退出</msg>
+<status status="PASS" endtime="20151109 14:13:17.683" starttime="20151109 14:13:17.680"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``item1`` does not contain ``item2`` one or more times.</doc>
+<arguments>
+<arg>${logininfo}</arg>
+<arg>欢迎您</arg>
+</arguments>
+<status status="PASS" endtime="20151109 14:13:17.689" starttime="20151109 14:13:17.685"></status>
+</kw>
+<kw name="退出账号" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[@class="blue" and @target="_self"]</arg>
+</arguments>
+<msg timestamp="20151109 14:13:17.694" level="INFO">Clicking element 'xpath=//a[@class="blue" and @target="_self"]'.</msg>
+<status status="PASS" endtime="20151109 14:13:20.185" starttime="20151109 14:13:17.692"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:13:20.185" starttime="20151109 14:13:17.690"></status>
+</kw>
+<kw name="Delete All Cookies" library="Selenium2Library">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20151109 14:13:20.901" starttime="20151109 14:13:20.186"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151109 14:13:21.618" starttime="20151109 14:13:20.902"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:13:21.618" critical="yes" starttime="20151109 14:12:54.151"></status>
+</test>
+<test id="s1-t3" name="QQ登录">
+<kw type="setup" name="打开浏览器到登录界面" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151109 14:13:21.622" level="INFO">Opening browser 'firefox' to base url 'http://www.111.com.cn'</msg>
+<status status="PASS" endtime="20151109 14:13:29.251" starttime="20151109 14:13:21.622"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151109 14:13:36.754" starttime="20151109 14:13:29.252"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151109 14:13:36.756" starttime="20151109 14:13:36.755"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网</arg>
+</arguments>
+<msg timestamp="20151109 14:13:38.863" level="INFO">Page title is '壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网'.</msg>
+<status status="PASS" endtime="20151109 14:13:38.863" starttime="20151109 14:13:36.757"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=logininfo</arg>
+</arguments>
+<msg timestamp="20151109 14:13:38.865" level="INFO">Clicking element 'id=logininfo'.</msg>
+<status status="PASS" endtime="20151109 14:13:40.011" starttime="20151109 14:13:38.864"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<msg timestamp="20151109 14:13:42.672" level="INFO">Page title is '登录'.</msg>
+<status status="PASS" endtime="20151109 14:13:42.673" starttime="20151109 14:13:40.012"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:13:42.674" starttime="20151109 14:13:21.621"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=a[onclick="jointLogin('QQ')"]</arg>
+</arguments>
+<msg timestamp="20151109 14:13:42.675" level="INFO">Clicking element 'css=a[onclick="jointLogin('QQ')"]'.</msg>
+<status status="PASS" endtime="20151109 14:13:43.739" starttime="20151109 14:13:42.674"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>QQ帐号安全登录</arg>
+</arguments>
+<msg timestamp="20151109 14:13:45.674" level="INFO">Page title is 'QQ帐号安全登录'.</msg>
+<status status="PASS" endtime="20151109 14:13:45.674" starttime="20151109 14:13:43.740"></status>
+</kw>
+<kw name="Select Frame" library="Selenium2Library">
+<doc>Sets frame identified by `locator` as current frame.</doc>
+<arguments>
+<arg>ptlogin_iframe</arg>
+</arguments>
+<msg timestamp="20151109 14:13:45.675" level="INFO">Selecting frame 'ptlogin_iframe'.</msg>
+<status status="PASS" endtime="20151109 14:13:46.698" starttime="20151109 14:13:45.675"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>css=a[tabindex="8"]</arg>
+</arguments>
+<msg timestamp="20151109 14:13:46.700" level="INFO">Clicking element 'css=a[tabindex="8"]'.</msg>
+<status status="PASS" endtime="20151109 14:14:39.134" starttime="20151109 14:13:46.699"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=u</arg>
+<arg>${QQ账号}</arg>
+</arguments>
+<msg timestamp="20151109 14:14:39.136" level="INFO">Typing text '307652153' into text field 'id=u'</msg>
+<status status="PASS" endtime="20151109 14:14:40.712" starttime="20151109 14:14:39.135"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=p</arg>
+<arg>${密码}</arg>
+</arguments>
+<msg timestamp="20151109 14:14:40.715" level="INFO">Typing text 'Myf68827106' into text field 'id=p'</msg>
+<status status="PASS" endtime="20151109 14:14:42.279" starttime="20151109 14:14:40.713"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=login_button</arg>
+</arguments>
+<msg timestamp="20151109 14:14:42.283" level="INFO">Clicking element 'id=login_button'.</msg>
+<status status="PASS" endtime="20151109 14:14:43.359" starttime="20151109 14:14:42.280"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20151109 14:14:45.364" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20151109 14:14:45.364" starttime="20151109 14:14:43.360"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>注册壹药网</arg>
+</arguments>
+<msg timestamp="20151109 14:14:45.877" level="INFO">Page title is '注册壹药网'.</msg>
+<status status="PASS" endtime="20151109 14:14:45.878" starttime="20151109 14:14:45.365"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=gotoShopping</arg>
+</arguments>
+<msg timestamp="20151109 14:14:45.879" level="INFO">Clicking element 'id=gotoShopping'.</msg>
+<status status="PASS" endtime="20151109 14:14:47.712" starttime="20151109 14:14:45.879"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>id=logininfo</arg>
+</arguments>
+<assign>
+<var>${logininfo}</var>
+</assign>
+<msg timestamp="20151109 14:14:48.779" level="INFO">${logininfo} = 乱了纯真乱了范 欢迎您！
+退出</msg>
+<status status="PASS" endtime="20151109 14:14:48.779" starttime="20151109 14:14:47.712"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${logininfo}</arg>
+</arguments>
+<msg timestamp="20151109 14:14:48.781" level="INFO">乱了纯真乱了范 欢迎您！
+退出</msg>
+<status status="PASS" endtime="20151109 14:14:48.781" starttime="20151109 14:14:48.780"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``item1`` does not contain ``item2`` one or more times.</doc>
+<arguments>
+<arg>${logininfo}</arg>
+<arg>欢迎您</arg>
+</arguments>
+<status status="PASS" endtime="20151109 14:14:48.783" starttime="20151109 14:14:48.782"></status>
+</kw>
+<kw name="退出账号" library="resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[@class="blue" and @target="_self"]</arg>
+</arguments>
+<msg timestamp="20151109 14:14:48.785" level="INFO">Clicking element 'xpath=//a[@class="blue" and @target="_self"]'.</msg>
+<status status="PASS" endtime="20151109 14:14:52.329" starttime="20151109 14:14:48.784"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:14:52.330" starttime="20151109 14:14:48.783"></status>
+</kw>
+<kw name="Delete All Cookies" library="Selenium2Library">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20151109 14:14:53.046" starttime="20151109 14:14:52.331"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151109 14:14:53.757" starttime="20151109 14:14:53.047"></status>
+</kw>
+<status status="PASS" endtime="20151109 14:14:53.757" critical="yes" starttime="20151109 14:13:21.620"></status>
+</test>
+<test id="s1-t4" name="网易用户登录">
+<kw type="setup" name="打开浏览器到登录界面" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151109 14:14:53.760" level="INFO">Opening browser 'firefox' to base url 'http://www.111.com.cn'</msg>
+<status status="PASS" endtime="20151109 14:15:02.122" starttime="20151109 14:14:53.760"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151109 14:15:03.253" starttime="20151109 14:15:02.123"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151109 14:15:03.256" starttime="20151109 14:15:03.254"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网</arg>
+</arguments>
+<msg timestamp="20151109 14:15:03.764" level="INFO">Page title is '壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网'.</msg>
+<status status="PASS" endtime="20151109 14:15:03.765" starttime="20151109 14:15:03.256"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=logininfo</arg>
+</arguments>
+<msg timestamp="20151109 14:15:03.766" level="INFO">Clicking element 'id=logininfo'.</msg>
+<status status="PASS" endtime="20151109 14:15:04.881" starttime="20151109 14:15:03.765"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>登录</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151109 14:15:06.838" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151109 14:15:06.838" starttime="20151109 14:15:05.396"></status>
+</kw>
+<msg timestamp="20151109 14:15:06.840" level="FAIL">Title should have been '登录' but was '壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网'</msg>
+<status status="FAIL" endtime="20151109 14:15:06.841" starttime="20151109 14:15:04.881"></status>
+</kw>
+<status status="FAIL" endtime="20151109 14:15:06.841" starttime="20151109 14:14:53.759"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151109 14:15:07.525" starttime="20151109 14:15:06.842"></status>
+</kw>
+<doc>skip</doc>
+<status status="FAIL" endtime="20151109 14:15:07.526" critical="yes" starttime="20151109 14:14:53.758">Setup failed:
+Title should have been '登录' but was '壹药网_网上药店领导者_网上购买药品的放心药房网_中国医药电商行业的领跑者_网上买药就上壹药网'</status>
+</test>
+<status status="FAIL" endtime="20151109 14:15:07.530" starttime="20151109 14:12:21.559"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="3">Critical Tests</stat>
+<stat fail="1" pass="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="登录" pass="3">登录</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
